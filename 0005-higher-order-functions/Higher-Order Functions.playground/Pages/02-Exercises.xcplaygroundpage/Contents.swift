@@ -4,6 +4,18 @@
  1. Write `curry` for functions that take 3 arguments.
  */
 // TODO
+
+func curry<A, B, C, D>(_ f: @escaping (A, B, C) -> D) -> (A) -> (B) -> (C) -> D {
+    return { a in { b in { c in f(a, b, c)} } }
+}
+
+func threeArg(a: Int, b: Int, c: Int) -> Int {
+    return a + b + c
+}
+
+threeArg
+curry(threeArg)
+
 /*:
  2. Explore functions and methods in the Swift standard library, Foundation, and other third party code, and convert them to free functions that compose using `curry`, `zurry`, `flip`, or by hand.
  */
